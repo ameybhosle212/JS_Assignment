@@ -2,34 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JS Assignment</title>
+    <title>JS Assignment 1</title>
     <script>
         var operator = '' ;
-        function addOperator(value){
-            if(value == "+"){
-                document.getElementById("add").style.backgroundColor = "#00d100";
-                document.getElementById("sub").style.backgroundColor = "#ff0000";
-                document.getElementById("mul").style.backgroundColor = "#ff0000";
-                document.getElementById("div").style.backgroundColor = "#ff0000";
-            }else if(value == "-"){
-                document.getElementById("add").style.backgroundColor = "#ff0000";
-                document.getElementById("sub").style.backgroundColor = "#00d100";
-                document.getElementById("mul").style.backgroundColor = "#ff0000";
-                document.getElementById("div").style.backgroundColor = "#ff0000";
-            }else if(value == "*"){
-                document.getElementById("add").style.backgroundColor = "#ff0000";
-                document.getElementById("sub").style.backgroundColor = "#ff0000";
-                document.getElementById("mul").style.backgroundColor = "#00d100";
-                document.getElementById("div").style.backgroundColor = "#ff0000";
-            }
-            else if( value == "/"){
-                document.getElementById("add").style.backgroundColor = "#ff0000";
-                document.getElementById("sub").style.backgroundColor = "#ff0000";
-                document.getElementById("mul").style.backgroundColor = "#ff0000";
-                document.getElementById("div").style.backgroundColor = "#00d100";
-            }
-            operator = value;
-            console.log(operator);
+        function AddOperator(){
+            operator = "+";
+            document.getElementById("add").style.backgroundColor = "#00d100";
+            document.getElementById("sub").style.backgroundColor = "#ff0000";
+            document.getElementById("mul").style.backgroundColor = "#ff0000";
+            document.getElementById("div").style.backgroundColor = "#ff0000";
+        }
+        function SubOperator(){
+            operator = "-";
+            document.getElementById("add").style.backgroundColor = "#ff0000";
+            document.getElementById("sub").style.backgroundColor = "#00d100";
+            document.getElementById("mul").style.backgroundColor = "#ff0000";
+            document.getElementById("div").style.backgroundColor = "#ff0000";
+        }
+        function MulOperator(){
+            operator = "*";
+            document.getElementById("add").style.backgroundColor = "#ff0000";
+            document.getElementById("sub").style.backgroundColor = "#ff0000";
+            document.getElementById("mul").style.backgroundColor = "#00d100";
+            document.getElementById("div").style.backgroundColor = "#ff0000";
+        }
+        function DivOperator(){
+            operator = "/";
+            document.getElementById("add").style.backgroundColor = "#ff0000";
+            document.getElementById("sub").style.backgroundColor = "#ff0000";
+            document.getElementById("mul").style.backgroundColor = "#ff0000";
+            document.getElementById("div").style.backgroundColor = "#00d100";
         }
         function answer() {
             let v1 = document.getElementById("value1").value;
@@ -50,15 +52,15 @@
                         break
                     case '/':
                         if(v2 === 0){
-                            alert("Cannot divide by zero")
+                            // alert("Cannot divide by zero")
                             break;
                         }
                         answers = v1 / v2 ;
                         break
                     default:
-                        alert("NO");
+                        alert("No such Operator Exist");
                 }
-                alert(answers)
+                v2 === 0 ? window.alert("Cannot divide by zero"):window.alert(answers);
             }else{
                 alert("Enter all Values")
             }
@@ -70,10 +72,10 @@
         <label for="value1">Enter 1st Value:</label>
         <input id="value1" type="number" name="v1"><br><br>
         Plaese Select <br>operators for operations:
-        <input type="button" onclick="addOperator('+')" value="+" id="add">
-        <input type="button" onclick="addOperator('-')" value="-" id="sub">
-        <input type="button" onclick="addOperator('*')" value="*" id="mul">
-        <input type="button" onclick="addOperator('/')" value="/" id="div"><br><br>
+        <input type="button" onclick="AddOperator()" value="+" id="add">
+        <input type="button" onclick="SubOperator()" value="-" id="sub">
+        <input type="button" onclick="MulOperator()" value="*" id="mul">
+        <input type="button" onclick="DivOperator()" value="/" id="div"><br><br>
         <label for="value2">Enter 2nd Value:</label>
         <input id="value2" type="number" name="v2"><br><br>
         <button>Answer</button>
