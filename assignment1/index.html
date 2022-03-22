@@ -5,6 +5,10 @@
     <title>JS Assignment 1</title>
     <script>
         var operator = '' ;
+        //  AddOperator Function sets operator variable to +
+        //  SubOperator Function sets operator variable to -
+        //  MulOperator Function sets operator variable to *
+        //  DivOperator Function sets operator variable to /
         function AddOperator(){
             operator = "+";
             document.getElementById("add").style.backgroundColor = "#00d100";
@@ -38,6 +42,7 @@
             let v2 = document.getElementById("value2").value;
             let answers;
             if(v1 && v2 && operator){
+                // parseInt Converts string to integer
                 v1 = parseInt(v1);
                 v2 = parseInt(v2);
                 switch (operator) {
@@ -52,7 +57,6 @@
                         break
                     case '/':
                         if(v2 === 0){
-                            // alert("Cannot divide by zero")
                             break;
                         }
                         answers = v1 / v2 ;
