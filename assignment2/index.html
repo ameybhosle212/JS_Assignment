@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Assignment 2</title>
+    <script>
+        var operator = '' ;
+        //  AddOperator Function sets operator variable to +
+        //  SubOperator Function sets operator variable to -
+        //  MulOperator Function sets operator variable to *
+        //  DivOperator Function sets operator variable to /
+        function AddOperator(){
+            operator = "+";
+            document.getElementById("add").style.backgroundColor = "#00d100";
+            document.getElementById("sub").style.backgroundColor = "#ff0000";
+            document.getElementById("mul").style.backgroundColor = "#ff0000";
+            document.getElementById("div").style.backgroundColor = "#ff0000";
+        }
+        function SubOperator(){
+            operator = "-";
+            document.getElementById("add").style.backgroundColor = "#ff0000";
+            document.getElementById("sub").style.backgroundColor = "#00d100";
+            document.getElementById("mul").style.backgroundColor = "#ff0000";
+            document.getElementById("div").style.backgroundColor = "#ff0000";
+        }
+        function MulOperator(){
+            operator = "*";
+            document.getElementById("add").style.backgroundColor = "#ff0000";
+            document.getElementById("sub").style.backgroundColor = "#ff0000";
+            document.getElementById("mul").style.backgroundColor = "#00d100";
+            document.getElementById("div").style.backgroundColor = "#ff0000";
+        }
+        function DivOperator(){
+            operator = "/";
+            document.getElementById("add").style.backgroundColor = "#ff0000";
+            document.getElementById("sub").style.backgroundColor = "#ff0000";
+            document.getElementById("mul").style.backgroundColor = "#ff0000";
+            document.getElementById("div").style.backgroundColor = "#00d100";
+        }
+        // answer function takes 2 input along with operator and outputs error if any .
+        // It alerts the answer after computation if all the conditions are matched .
+        function answer() {
+            let error = "";
+            let v1 = document.getElementById("value1").value;
+            let v2 = document.getElementById("value2").value;
+            let answers;
+            v1 = parseInt(v1);      
+            v2 = parseInt(v2);
+            // Added number type safety
+            if( Number.isInteger(v1) && Number.isInteger(v2) && operator){
+                //  if v1 and v2 is integer it gets inside here.
+                switch (operator) {
+                    case '+':
+                        answers = v1 + v2 ;
+                        break;
+                    case '-':
+                        answers = v1-v2;
+                        break
+                    case '*':
+                        answers = v1*v2;
+                        break
+                    case '/':
+                        if(v2 === 0){
+                            error = "Cannot divide by zero"
+                            break;
+                        }
+                        answers = v1 / v2 ;
+                        break
+                    default:
+                        window.alert("No such Operator Exist");
+                }
+                v2 === 0 ? window.alert(`Error: ${error}`): alert(`The answer is ${answers}`)
+            }else if (operator == ''){
+                error = "Enter Operator";
+                alert(`Error: ${error}`)
+            }else{
+                if(v1){
+                    error = "Enter 2nd values "
+                    window.alert(`Error: ${error}`)
+                }else{
+                    error = "Enter 1st values "
+                    window.alert(`Error: ${error}`)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="answer()">
+        <!-- Used number as type due to which user cannot enter alphabets -->
+        <label for="value1">Enter 1st Value:</label>
+        <input id="value1" type="number" name="v1"><br><br>
+        Plaese Select <br>operators for operations:
+        <input type="button" onclick="AddOperator()" value="+" id="add">
+        <input type="button" onclick="SubOperator()" value="-" id="sub">
+        <input type="button" onclick="MulOperator()" value="*" id="mul">
+        <input type="button" onclick="DivOperator()" value="/" id="div"><br><br>
+        <!-- Used number as type due to which user cannot enter alphabets -->
+        <label for="value2">Enter 2nd Value:</label>
+        <input id="value2" type="number" name="v2"><br><br>
+        <button>Answer</button>
+    </form>
+    <br><br><br>
+    <p>Note : <b style="color: green;">Green </b>Color represents the selected sign of the Operator</p>
+</body>
+</html>
