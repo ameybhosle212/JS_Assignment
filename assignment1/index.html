@@ -5,6 +5,7 @@
     <title>JS Assignment 1</title>
     <script>
         var operator = '' ;
+        var error = "";
         //  AddOperator Function sets operator variable to +
         //  SubOperator Function sets operator variable to -
         //  MulOperator Function sets operator variable to *
@@ -57,6 +58,7 @@
                         break
                     case '/':
                         if(v2 === 0){
+                            error = "Error is : Cannot divide by zero";
                             break;
                         }
                         answers = v1 / v2 ;
@@ -64,15 +66,23 @@
                     default:
                         alert("No such Operator Exist");
                 }
-                v2 === 0 ? window.alert("Cannot divide by zero"):window.alert(answers);
+               if(v2 === 0){
+                   document.getElementById("error").innerText = error;
+                   document.getElementById("answer").innerHTML = "";
+               }else{
+                   document.getElementById("error").innerText = "";
+                   document.getElementById("answer").innerHTML = "The answer is "+ answers;
+               }
             }else{
-                alert("Enter all Values")
+                error = "Error is Enter all Values"
+                document.getElementById("error").innerHTML = error;
+                document.getElementById("answer").innerHTML = "";
             }
         }
     </script>
 </head>
 <body>
-    <form onsubmit="answer()">
+    <form>
         <label for="value1">Enter 1st Value:</label>
         <input id="value1" type="number" name="v1"><br><br>
         Plaese Select <br>operators for operations:
@@ -82,8 +92,10 @@
         <input type="button" onclick="DivOperator()" value="/" id="div"><br><br>
         <label for="value2">Enter 2nd Value:</label>
         <input id="value2" type="number" name="v2"><br><br>
-        <button>Answer</button>
-    </form>
+        <input type="button" onclick="answer()" value="Answer">
+        <p id="answer"></p>
+        <h2 id="error" style="color: red;"></h2>
+    </form><br><br>
     <br><br><br>
     <p>Note : <b style="color: green;">Green </b>Color represents the selected sign of the Operator</p>
 </body>

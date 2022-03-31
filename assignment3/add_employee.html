@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3 -Employee</title>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <!-- Added 3 Button To perform respective Tasks -->
+    <input type="button" id="adddddd" value="Add Employee" onclick="ShowEmployee121()" style="background-color: #00ff00;">
+    <input type="button" id="viewwww" value="View Employee" onclick="ViewEmployee121()">
+    <input type="button" id="editttt" value="Edit Employee" onclick="EditEmployee121()">
+    <!-- On Click of First Button User Can Add data -->
+    <div id="ShowAddEmployee">
+        <h1>ADD Employee</h1><br>
+        <!-- Add data using form and is stored in JS Array -->
+        <form>
+            <label for="name">Name: </label>
+            <input id="name" name="name" required ><br><br>
+            <label for="Address">Address: </label>
+            <input id="Address" name="Address" required ><br><br>
+            <label for="Employee_id">Employee Id: </label>
+            <input id="Employee_id" name="Employee_id" type="number" required ><br><br>
+            <label for="Designation">Designation: </label>
+            <input id="Designation" name="Designation" required ><br><br>
+            <input type="button" value="Add Employee" onclick="AddEmployee()" >
+        </form><br><br>
+    </div>
+    <!-- On Click of Second Button User Can View data -->
+    <div id="ShowViewEmployee" style="visibility: hidden;">
+        <h1>View Employee</h1>
+        <!-- User Can View all data in Table form -->
+        <table id="table" border="2">
+            <tr>
+                <th>Name</th>
+                <th>Employee Id</th>
+                <th>Address</th>
+                <th>Designation</th>
+            </tr>
+        </table>
+    </div>
+    <!-- On Click of Third Button User Can Edit data -->
+    <div id="ShowEditEmployee" style="visibility: hidden;">
+        <h1>Edit Employee</h1>
+        <!-- List Down All Employee Name TO Edit -->
+        <select id="edit" onchange="EditEmp()">
+            <option>--SELECT--</option>
+        </select><br><br>
+        <!-- Edit Form using the Input and then after changes user can update it . -->
+        <form>
+            <label for="name1">Name: </label>
+            <input id="name1" name="name" required ><br><br>
+            <label for="Address1">Address: </label>
+            <input id="Address1" name="Address" required ><br><br>
+            <label for="Employee_id1">Employee Id: </label>
+            <input id="Employee_id1" name="Employee_id" type="number" readonly ><br><br>
+            <label for="Designation1">Designation: </label>
+            <input id="Designation1" name="Designation" required ><br><br>
+            <input type="button" value="Edit Employee" onclick="ChangeEmployee()" >
+        </form><br><br>
+    </div>
+</body>
+</html>
