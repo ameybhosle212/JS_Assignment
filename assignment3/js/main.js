@@ -17,25 +17,26 @@ var AllEmployee = [];
 // addEditOptionsInSelect function is called which adds Option in Select tag in Edit Employee Field as the data is added
 // And AddRow Function is called after that To add Data in View Employee Table Field
 function AddEmployee(){
+    // Get Values from User to create Employee .
     let name = document.getElementById("name").value;
     let address = document.getElementById("Address").value;
     let Employee_id = document.getElementById("Employee_id").value;
     let designation = document.getElementById("Designation").value;
+    // Checks if Employee Id existed or not .
     let result = AllEmployee.find(value => value.Employee_id === parseInt(Employee_id));
-    console.log(result);
+    // If employee Id Exited the alert the user
     if(result){
         alert("CHANGE EMPLOYEE ID")
     }else{
+        // Create New Employee Object and store in Array
         let employee = new Employee(name,address,parseInt(Employee_id),designation);
         AllEmployee.push(employee);
-        // addOptionsInSelect();
         addEditOptionsInSelect()
         AddRows()
         document.getElementById("name").value = "";
         document.getElementById("Address").value = "";
         document.getElementById("Employee_id").value = "";
         document.getElementById("Designation").value = "";
-        console.log(AllEmployee)
     }
 }
 
@@ -67,12 +68,14 @@ function EditEmp() {
 // After changes are stored in array , it removes all option from select of edit div and refreshes new changes in select's option using
 // RefreshSelectInEdit function and refresh the change in View using RefreshViewEmployee function .
 function ChangeEmployee() {
+    //  Get name address employee id , designation from user
     let name = document.getElementById("name1").value;
     let address = document.getElementById("Address1").value;
     let Employee_id = document.getElementById("Employee_id1").value;
     let designation = document.getElementById("Designation1").value;
+    // Find the unique employe with his employee id
     let result = AllEmployee.findIndex(value => value.Employee_id === parseInt(Employee_id));
-    console.log(name , address , designation,result,AllEmployee[result]);
+    // store change in the update employee .
     AllEmployee[result].name = name;
     AllEmployee[result].address = address;
     AllEmployee[result].designation = designation;
@@ -84,7 +87,6 @@ function ChangeEmployee() {
     selectedBox.selectedIndex = 0;
     RefreshSelectInEdit();
     RefreshViewEmployee();
-    console.log(AllEmployee[result]);
 }
 
 
